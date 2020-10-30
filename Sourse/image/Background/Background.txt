@@ -1,0 +1,20 @@
+this->centralWidget()->setStyleSheet("background-image:url(\"bkg.jpg\"); background-position: center; ");
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+
+    this->centralWidget()->setStyleSheet(
+         "background-image:url(\"bkg.jpg\"); background-position: center;" );
+}
+
+Вариант 2:
+this->setStyleSheet(
+            "#centralWidget { "
+            " border-image: url(:/background.png) 0 0 0 0 stretch stretch;"
+            "}");
+
+use First_Base
+EXEC sp_msforeachtable 'ALTER TABLE ? CHECK CONSTRAINT all'
