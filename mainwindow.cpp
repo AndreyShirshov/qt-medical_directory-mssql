@@ -132,7 +132,6 @@ void MainWindow::on_pushButton_clicked(){
                                      gridline-color: #777;\
                                      color:#333;\
                                      font-size:12px;\
-                                     font-color: #000000;\
                                  }\
                                  QHeaderView {\
                                      background-color: #fff;\
