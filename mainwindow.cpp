@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);    
     popUp = new PopUp();
+    ui->searchContentLine->setFocus();
     QSettings settings("settings.ini", QSettings::IniFormat);
     const QString myServer = settings.value("SET_SERVER/IP").toString();
     const QString myPort= settings.value("SET_SERVER/Port").toString();
