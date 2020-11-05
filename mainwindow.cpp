@@ -124,13 +124,15 @@ void MainWindow::on_pushButton_clicked(){
 
         ui->tableView->setStyleSheet("QTableView {selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5,\
             y2: 0.5,stop: 0 #1C7CD8, stop: 1 #7BB4EC);\
+                                     selection-color: black;\
                                      background-color: rgba(255, 255, 255, 200);\
-                                     border: 2px solid #1C7CD8;\
+                                     border: 2px solid #7BB4EC;\
                                      border-top-color: #094C8C;\
                                      border-radius: 4px;\
                                      gridline-color: #777;\
                                      color:#333;\
                                      font-size:12px;\
+                                     font-color: #000000;\
                                  }\
                                  QHeaderView {\
                                      background-color: #fff;\
