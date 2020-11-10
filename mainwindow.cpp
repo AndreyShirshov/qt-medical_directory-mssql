@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+/*********************************************************************/
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -30,29 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->searchContentLine, SIGNAL (returnPressed()), ui->pushButton, SIGNAL(clicked() ) );
     this->setWindowTitle(tr("Справочник"));
-    this->setWindowIcon(QIcon(":/doc.ico"));
-    ui->pushButton->setStyleSheet("QPushButton {\
-        background-color: #52A0EC;\
-        border-style: outset;\
-        border-width: 1px;\
-        border-radius: 10px;\
-        border-color: beige;\
-        font: bold 14px;\
-        padding: 6px;}\
-        QPushButton:pressed {\
-            background-color: #FF9D0F;\
-            border-style: inset\
-    }");
-    ui->searchContentLine->setStyleSheet("QLineEdit {\
-         border: 1px solid #8A85EE;\
-         border-radius: 5px;\
-         padding: 0 8px;\
-         selection-background-color: #352BDD;\
-    }");
-this->setStyleSheet(
-            "#MainWindow { "
-            " border-image: url(:/1.jpg) 0 0 0 0 stretch stretch;"
-            "}");
+    this->setWindowIcon(QIcon(":/source/images/icons/doc.ico"));
 }
 
 MainWindow::~MainWindow()
@@ -69,14 +49,6 @@ Model ::Model( QObject *parent )
 
 Model ::~Model() {
     }
-
-/*-------------------------------------------------------------------*/
-
-//QVariant Model::dataTextAlignment( const QModelIndex &I ) const {
-//    int Result = Qt::AlignVCenter ; // По вертикали выравниваем по базовой линии AlignBaseline или по центру AlignVCenter
-//    Result |= I.column() == 1 ?  Qt::AlignLeft : Qt::AlignHCenter ; // 1 колонку выравниваем влево, остальные по центру
-//    return Result ;
-//}
 
 /*********************************************************************/
 
@@ -122,55 +94,6 @@ void MainWindow::on_pushButton_clicked(){
         //ui->tableView->verticalHeader()->setMinimumSectionSize(35);
         //ui->tableView->verticalHeader()->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
 
-        ui->tableView->setStyleSheet("QTableView {selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5,\
-            y2: 0.5,stop: 0 #1C7CD8, stop: 1 #7BB4EC);\
-                                     selection-color: black;\
-                                     background-color: rgba(255, 255, 255, 200);\
-                                     border: 2px solid #7BB4EC;\
-                                     border-top-color: #094C8C;\
-                                     border-radius: 4px;\
-                                     gridline-color: #777;\
-                                     color:#333;\
-                                     font-size:12px;\
-                                 }\
-                                 QHeaderView {\
-                                     background-color: #fff;\
-                                     font-size:16px;\
-                                 }\
-                                 QHeaderView::section:horizontal {\
-                                     color: black;\
-                                     font: bold 14px;\
-                                     font-family: Times New Roman;\
-                                     border-style: solid;\
-                                     background-color: qlineargradient( x1: 0, y1: 0, x2: 0, y2: 1,\
-                                     stop: 0 #7BB4EC, stop: 1 #1C7CD8);\
-                                 }\
-                                 QScrollBar:vertical {\
-                                     background: #e4e4e4;\
-                                     border-top-right-radius: 4px;\
-                                     border-bottom-right-radius: 4px;\
-                                     width: 16px;\
-                                     margin: 0px;\
-                                 }\
-                                 QScrollBar::handle:vertical {\
-                                    background-color: qlineargradient( x1: 0, y1: 0, x2: 1, y2: 0,\
-                                                                    stop: 0 #4287ff, stop: 1 #1C7CD8);\
-                                     border-radius: 4px;\
-                                     min-height: 20px;\
-                                     margin: 0px 2px 0px 2px;\
-                                 }\
-                                 QScrollBar::add-line:vertical {\
-                                     background: none;\
-                                     height: 0px;\
-                                     subcontrol-position: right;\
-                                     subcontrol-origin: margin;\
-                                 }\
-                                 QScrollBar::sub-line:vertical {\
-                                     background: none;\
-                                     height: 0px;\
-                                     subcontrol-position: left;\
-                                     subcontrol-origin: margin;\
-                                 }");
         ui->tableView->show();
     }
 

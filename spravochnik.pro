@@ -14,7 +14,7 @@ win32:{
     QMAKE_TARGET_PRODUCT = Medical directory
     QMAKE_TARGET_DESCRIPTION = Medical reference for Eidos
     QMAKE_TARGET_COPYRIGHT = Andrey Shirshov
-    RC_ICONS = $$PWD/doc.ico
+    RC_ICONS = $$PWD/source/images/icons/doc.ico
 }
 
 SOURCES += \
