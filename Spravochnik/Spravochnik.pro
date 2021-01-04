@@ -16,10 +16,18 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
 
+TARGET = Spravochnik
+CONFIG -= app_bundle
+TEMPLATE = app
+
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
     popup.cpp
+	
+DISTFILES += \
+    README.txt \
+    settings.ini
 
 HEADERS += \
     mainwindow.h \
@@ -28,18 +36,13 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
-
 DISTFILES +=
 
 RESOURCES += \
     rsc.qrc
 
 win32:{
-    VERSION = 1.0.0.1
+    VERSION = 1.0.2
     QMAKE_TARGET_COMPANY = Andrey Shirshov Co
     QMAKE_TARGET_PRODUCT = Medical directory
     QMAKE_TARGET_DESCRIPTION = Medical reference for Eidos
@@ -50,26 +53,29 @@ win32:{
 # Выбираем директорию сборки исполняемого файла
 # в зависимости от режима сборки проекта
 CONFIG(debug, debug|release) {
-    DESTDIR = $$PWD/common/build/SpravochnikDebug
+    DESTDIR = $$OUT_PWD/../../SpravochnikDebug
 } else {
-    DESTDIR = $$PWD/common/build/SpravochnikRelease
+    DESTDIR = $$OUT_PWD/../../SpravochnikRelease
 }
 
 # Разделяем по директориям все выходные файлы проекта
-MOC_DIR = $$PWD/common/build/moc
-RCC_DIR = $$PWD/common/build/rcc
-UI_DIR = $$PWD/common/build/ui
-unix:OBJECTS_DIR = $$PWD/common/build/o/unix
-win32:OBJECTS_DIR = $$PWD/common/build/o/win32
-macx:OBJECTS_DIR = $$PWD/common/build/o/mac
+MOC_DIR = ../common/build/moc
+RCC_DIR = ../common/build/rcc
+UI_DIR = ../common/build/ui
+unix:OBJECTS_DIR = ../common/build/o/unix
+win32:OBJECTS_DIR = ../common/build/o/win32
+macx:OBJECTS_DIR = ../common/build/o/mac
 
 # В зависимости от режима сборки проекта
 # запускаем win deploy приложения в целевой директории, то есть собираем все dll
-# копируем settings.ini
+# копируем settings.ini и README.txt
 CONFIG(debug, debug|release) {
-    QMAKE_POST_LINK = $$(QTDIR)/bin/windeployqt $$PWD/common/build/SpravochnikDebug
-    copyFilesToDir($$PWD/settings.ini, $$PWD/common/build/SpravochnikDebug)
+    QMAKE_POST_LINK = $$(QTDIR)/bin/windeployqt $$OUT_PWD/../../SpravochnikDebug
+    copyFilesToDir($$PWD/settings.ini, $$OUT_PWD/../../SpravochnikDebug)
+    copyFilesToDir($$PWD/README.txt, $$OUT_PWD/../../SpravochnikDebug)
 } else {
-    QMAKE_POST_LINK = $$(QTDIR)/bin/windeployqt $$PWD/common/build/SpravochnikRelease
-    copyFilesToDir($$PWD/settings.ini, $$PWD/common/build/SpravochnikRelease)
+    QMAKE_POST_LINK = $$(QTDIR)/bin/windeployqt $$OUT_PWD/../../SpravochnikRelease
+    copyFilesToDir($$PWD/settings.ini, $$OUT_PWD/../../SpravochnikRelease)
+    copyFilesToDir($$PWD/README.txt, $$OUT_PWD/../../SpravochnikRelease)
 }
+

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<Installer>
+    <Name>Справочник</Name>
+    <Version>1.0.2</Version>
+    <Title>медицинский справочник</Title>
+    <Publisher>Ширшов Андрей</Publisher>
+    <ProductUrl>http://www.my-fantastic-company.com</ProductUrl>
+    <InstallerWindowIcon>doc32x32.png</InstallerWindowIcon>
+    <InstallerApplicationIcon>doc</InstallerApplicationIcon>
+    <Logo>doc64x64.png</Logo>
+    <Watermark>2.png</Watermark>
+    <WizardStyle>Modern</WizardStyle>
+        <AllowSpaceInPath>true</AllowSpaceInPath>
+    <StartMenuDir>Spravochnik</StartMenuDir>
+    <MaintenanceToolName>InstallTools</MaintenanceToolName>
+    <AllowNonAsciiCharacters>true</AllowNonAsciiCharacters>
+    <TargetDir>@ApplicationsDir@\Spravochnik</TargetDir>
+    <RemoteRepositories>
+        <Repository>
+            <Url>http://127.0.0.1/</Url>
+        </Repository>
+    </RemoteRepositories>
+</Installer>
